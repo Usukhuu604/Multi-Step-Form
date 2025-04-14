@@ -2,21 +2,15 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { InputField } from "@/components/InputField";
+
 import { FirstCard } from "@/components/FirstCard";
 import { SecondCard } from "@/components/SecondCard";
 import { ThirdCard } from "@/components/ThirdCard";
-
-const personalData = {
-  firstName: "",
-  lastName: "",
-  userName: "",
-  email: "",
-  phone: "",
-};
+import { initialFormValues } from "@/constants/constant";
 
 const HomePage = () => {
   const [currentCard, setCurrentCard] = useState(0);
+  const [formValues, setFormValues] = useState(initialFormValues);
 
   const addOne = () => {
     setCurrentCard((currentCard) => currentCard + 1);
@@ -32,6 +26,12 @@ const HomePage = () => {
       {/* <FirstCard addOne={addOne} /> */}
       {/* <SecondCard addOne={addOne} /> */}
       <ThirdCard addOne={addOne} />
+
+      {/* <AnimatePresence mode="wait">
+      <motion.div key={} initial={{}} animate={{}} exit={{}} transition={{}}>
+
+      </motion.div>
+     </AnimatePresence> */}
     </div>
   );
 };
