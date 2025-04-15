@@ -11,6 +11,12 @@ export const SecondCard = ({
   const { phone } = formValues;
   const { password } = formValues;
   const { confirmPassword } = formValues;
+
+  const continueButtonTailwind =
+    "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded  w-[50%]";
+  const backButtonTailwind =
+    "bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded  w-[50%]";
+
   return (
     <div>
       <Heading />
@@ -36,6 +42,7 @@ export const SecondCard = ({
         type="password"
         name="password"
         value={password}
+        handleInputChange={handleInputChange}
       />
       <InputField
         label="Confirm Password"
@@ -46,10 +53,10 @@ export const SecondCard = ({
         value={confirmPassword}
       />
 
-      <button onClick={previousPage} className="bg-red-500 text-white">
+      <button onClick={previousPage} className={backButtonTailwind}>
         Back
       </button>
-      <button onClick={nextPage} className="bg-black text-white">
+      <button onClick={nextPage} className={continueButtonTailwind}>
         Continue
       </button>
     </div>

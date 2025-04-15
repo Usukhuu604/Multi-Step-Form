@@ -5,6 +5,10 @@ export const FirstCard = ({ nextPage, handleInputChange, formValues }) => {
   const { firstName } = formValues;
   const { lastName } = formValues;
   const { userName } = formValues;
+
+  const continueButtonTailwind =
+    "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full";
+
   return (
     <div>
       <Heading />
@@ -34,10 +38,7 @@ export const FirstCard = ({ nextPage, handleInputChange, formValues }) => {
         value={userName}
       />
 
-      <button
-        onClick={nextPage}
-        className="bg-black text-white w-full rounded-3xl mt-10"
-      >
+      <button onClick={nextPage} className={continueButtonTailwind}>
         Continue
       </button>
     </div>

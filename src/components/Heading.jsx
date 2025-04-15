@@ -5,7 +5,7 @@ export const Heading = () => {
     <div className="mb-10">
       <img src="pineconeLogo.svg" alt="" />
       <p className="text-[26px] font-semibold">Join Us! 😎</p>
-      <p className="text-[#8E8E8E]">
+      <p className="text-[#8E8E8E]  mb-6 text-center">
         Please provide all current information accurately
       </p>
     </div>

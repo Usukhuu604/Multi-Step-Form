@@ -1,7 +1,22 @@
+"use client";
+
 import { InputField } from "./InputField";
 import { Heading } from "./Heading";
+import { useRef, useState } from "react";
 
-export const ThirdCard = ({ nextPage, previousPage, handleInputChange }) => {
+export const ThirdCard = ({
+  nextPage,
+  previousPage,
+  handleInputChange,
+  formValues,
+}) => {
+  const { dateOfBirth } = formValues;
+  const { profileImage } = formValues;
+
+  const continueButtonTailwind =
+    "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded  w-[50%]";
+  const backButtonTailwind =
+    "bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded  w-[50%]";
   return (
     <div>
       <Heading />
@@ -10,12 +25,18 @@ export const ThirdCard = ({ nextPage, previousPage, handleInputChange }) => {
         label="Date of birth"
         type="date"
         handleInputChange={handleInputChange}
+        value={dateOfBirth}
       />
-      <InputField label="Profile image" type="file" />
-      <button onClick={previousPage} className="bg-red-500 text-white">
+      <InputField
+        label="Profile image"
+        type="file"
+        name="profileImage"
+        value={profileImage}
+      />
+      <button onClick={previousPage} className={backButtonTailwind}>
         Back
       </button>
-      <button onClick={nextPage} className="bg-black text-white">
+      <button onClick={nextPage} className={continueButtonTailwind}>
         Submit
       </button>
     </div>
