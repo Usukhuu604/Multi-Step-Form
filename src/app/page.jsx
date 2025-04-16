@@ -10,8 +10,13 @@ import { initialFormValues } from "@/constants/constant";
 import { TheEnd } from "@/components/TheEnd";
 
 const HomePage = () => {
-  const [formValues, setFormValues] = useState(initialFormValues);
   const [currentCard, setCurrentCard] = useState(0);
+  const [formValues, setFormValues] = useState(initialFormValues);
+  const [formErrors, setFormErrors] = useState(initialFormValues);
+
+  const updateFormErrors = (errors) => {
+    setFormErrors((previousErrors) => ({ ...previousErrors, ...errors }));
+  };
 
   const nextPage = () => {
     if (currentCard < 4) {
@@ -35,8 +40,9 @@ const HomePage = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormValues((pv) => ({ ...pv, [name]: value }));
-    console.log(formValues);
+    setFormValues((previousValue) => ({ ...previousValue, [name]: value }));
+    setFormErrors((previousErrors) => ({ ...previousErrors, [name]: "" }));
+    // console.log(formValues);
   };
 
   return (
@@ -55,6 +61,9 @@ const HomePage = () => {
             currentCard={currentCard}
             formValues={formValues}
             handleInputChange={handleInputChange}
+            formErrors={formErrors}
+            setFormErrors={setFormErrors}
+            updateFormErrors={updateFormErrors}
           />
         </motion.div>
       </AnimatePresence>
