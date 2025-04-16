@@ -1,6 +1,4 @@
 import React from "react";
-import { useState, useRef } from "react";
-import Image from "next/legacy/image";
 
 export const InputField = ({
   label,

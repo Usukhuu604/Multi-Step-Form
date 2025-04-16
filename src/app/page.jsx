@@ -46,7 +46,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen bg-white">
+    <div className="flex flex-col items-center justify-center w-full h-screen bg-[#f4f4f4]">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentCard}
@@ -60,6 +60,7 @@ const HomePage = () => {
             nextPage={nextPage}
             currentCard={currentCard}
             formValues={formValues}
+            setFormValues={setFormValues}
             handleInputChange={handleInputChange}
             formErrors={formErrors}
             setFormErrors={setFormErrors}

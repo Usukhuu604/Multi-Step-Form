@@ -8,16 +8,17 @@ const validateStepTwo = ({ email, phone, password, confirmPassword }) => {
   const isPhone = (num) => {
     return !(Number.isInteger(Number(num)) && num.length === 8);
   };
-  const passwordValidation = (pass1, pass2) => {
-    return !(pass1 == pass2);
+  const isEmail = (mail) => {
+    return mail.includes("@") && mail.includes(".");
   };
-  if (isEmpty(email)) {
+
+  if (isEmpty(email) || !isEmail(email)) {
     validationErrors.email = "email оруулна уу!";
   }
   if (isEmpty(phone) || isPhone(phone)) {
     validationErrors.phone = "Шаардлага хангахгуй дугаар!";
   }
-  if (isEmpty(password)) {
+  if (isEmpty(password) || password.length < 6) {
     validationErrors.password = "password оруулна уу!";
   }
 

@@ -51,7 +51,7 @@ export const FirstCard = ({
     "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full";
 
   return (
-    <form>
+    <form className="bg-white p-4 rounded-[20px]">
       <Heading />
       <InputField
         name="firstName"
