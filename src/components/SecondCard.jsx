@@ -8,7 +8,9 @@ const validateStepTwo = ({ email, phone, password, confirmPassword }) => {
   const isPhone = (num) => {
     return !(Number.isInteger(Number(num)) && num.length === 8);
   };
-
+  const passwordValidation = (pass1, pass2) => {
+    return !(pass1 == pass2);
+  };
   if (isEmpty(email)) {
     validationErrors.email = "email оруулна уу!";
   }
@@ -19,7 +21,7 @@ const validateStepTwo = ({ email, phone, password, confirmPassword }) => {
     validationErrors.password = "password оруулна уу!";
   }
 
-  if (isEmpty(confirmPassword) && !(password != confirmPassword)) {
+  if (isEmpty(confirmPassword) || !(password == confirmPassword)) {
     validationErrors.confirmPassword = "re-password оруулна уу!";
   }
 
