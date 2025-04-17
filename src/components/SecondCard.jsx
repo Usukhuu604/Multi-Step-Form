@@ -64,7 +64,7 @@ export const SecondCard = ({
     updateFormErrors(validationErrors);
   };
   return (
-    <form>
+    <form className="bg-white p-4 rounded-[20px]">
       <Heading />
       <InputField
         name="email"

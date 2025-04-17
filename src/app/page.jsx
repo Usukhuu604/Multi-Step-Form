@@ -42,8 +42,12 @@ const HomePage = () => {
     const { name, value } = event.target;
     setFormValues((previousValue) => ({ ...previousValue, [name]: value }));
     setFormErrors((previousErrors) => ({ ...previousErrors, [name]: "" }));
-    // console.log(formValues);
+    console.log(formValues);
   };
+
+  // localStorage.setItem("","")
+  // const z = localStorage.getItem("")
+  // localStorage.removeItem("")
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-[#f4f4f4]">
