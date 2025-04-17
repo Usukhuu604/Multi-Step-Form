@@ -34,7 +34,7 @@ const HomePage = () => {
     }
   };
 
-  const FormPageComponent = [FirstCard, SecondCard, ThirdCard, TheEnd][
+  const FormPageComponent = [ThirdCard, ThirdCard, ThirdCard, TheEnd][
     currentCard
   ];
 
@@ -42,7 +42,7 @@ const HomePage = () => {
     const { name, value } = event.target;
     setFormValues((previousValue) => ({ ...previousValue, [name]: value }));
     setFormErrors((previousErrors) => ({ ...previousErrors, [name]: "" }));
-    // console.log(formValues);
+    console.log(formValues);
   };
 
   return (

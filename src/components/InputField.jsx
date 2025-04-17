@@ -19,6 +19,8 @@ export const InputField = ({
           name={name}
           type={type}
           placeholder={placeholder}
+          min="1900-01-01"
+          max="2025-12-31"
           value={value}
           onChange={handleInputChange}
         />

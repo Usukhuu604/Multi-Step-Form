@@ -37,13 +37,10 @@ export const FirstCard = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const { isFormValid, validationErrors } = validateStepOne(formValues);
-
     if (isFormValid) {
       nextPage();
     }
-
     updateFormErrors(validationErrors);
   };
 

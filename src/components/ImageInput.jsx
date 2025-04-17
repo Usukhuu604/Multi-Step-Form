@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useRef } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export const ImageInput = ({ label, type, name, setFormValues }) => {
   const inputImageRef = useRef(null);
@@ -13,10 +13,10 @@ export const ImageInput = ({ label, type, name, setFormValues }) => {
 
   const handleImageChange = (event) => {
     const file = Array.from(event.target.files)[0];
-    console.log();
+    // console.log(event.target.files);
     if (file) {
-      //   console.log(file);
       setPreviewLink(URL.createObjectURL(file));
+      // console.log(file);
     }
   };
 
@@ -35,32 +35,27 @@ export const ImageInput = ({ label, type, name, setFormValues }) => {
 
   const clearImage = () => {
     setPreviewLink("");
-    inputImageRef.current.value = "";
+    inputImageRef.current.value = null;
   };
   return (
     <div className="">
       <input
         ref={inputImageRef}
+        name={name}
         type={type}
         hidden
         onChange={handleImageChange}
+        accept=".jpg, .jpeg, .png"
       />
 
-      <Image
-        src={previewLink}
-        name={name}
-        width={200}
-        height={150}
-        alt="zurag"
-      />
       <button
-        className="bg-black border rounded-full text-[12px] text-justify relative "
+        className="bg-black border rounded-full text-[12px] text-justify "
         onClick={clearImage}
       >
         ❌
       </button>
       <div
-        className={`bg-gray-200 w-full h-30 rounded-md border ${
+        className={`bg-gray-200 w-full h-50 rounded-md border ${
           isDragging ? "border-red-500" : "border-grey-300"
         }`}
         onClick={openBrowse}
@@ -68,7 +63,14 @@ export const ImageInput = ({ label, type, name, setFormValues }) => {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
       >
-        Browse or Drop Image
+        Add Image
+        <Image
+          src={previewLink}
+          name={name}
+          width={350}
+          height={150}
+          alt="zurag"
+        />
       </div>
     </div>
   );
