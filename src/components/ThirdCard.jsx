@@ -34,6 +34,7 @@ export const ThirdCard = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const { isFormValid, validationErrors } = validateStepThree(formValues);
     if (isFormValid) {
       nextPage();
