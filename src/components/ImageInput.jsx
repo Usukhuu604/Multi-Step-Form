@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 
 export const ImageInput = ({ label, type, name, setFormValues }) => {
@@ -15,7 +14,6 @@ export const ImageInput = ({ label, type, name, setFormValues }) => {
     const file = Array.from(event.target.files)[0];
     console.log();
     if (file) {
-      //   console.log(file);
       setPreviewLink(URL.createObjectURL(file));
     }
   };
