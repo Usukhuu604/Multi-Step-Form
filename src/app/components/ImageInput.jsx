@@ -21,7 +21,7 @@ export const ImageInput = ({ type, name, setFormValues, error }) => {
   const handleDrop = (event) => {
     event.preventDefault();
     const file = Array.from(event.dataTransfer.files)[0];
-    //ADDED statement
+
     if (file) {
       setPreviewLink(URL.createObjectURL(file));
       setFormValues((prev) => ({ ...prev, [name]: file }));
@@ -57,13 +57,7 @@ export const ImageInput = ({ type, name, setFormValues, error }) => {
 
       {previewLink && (
         <div className="relative w-fit">
-          <Image
-            src={previewLink}
-            width={350}
-            height={350}
-            alt="Preview"
-            className="rounded-md"
-          />
+          <Image src={previewLink} width={350} height={350} alt="Preview" className="rounded-md" />
           <button
             type="button"
             onClick={clearImage}
@@ -84,9 +78,7 @@ export const ImageInput = ({ type, name, setFormValues, error }) => {
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
         >
-          {previewLink
-            ? "Click to change image"
-            : "Click or drag an image here"}
+          {previewLink ? "Click to change image" : "Click or drag an image here"}
         </div>
       )}
     </div>

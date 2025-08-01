@@ -3,11 +3,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
-import { FirstCard } from "@/components/FirstCard";
-import { SecondCard } from "@/components/SecondCard";
-import { ThirdCard } from "@/components/ThirdCard";
-import { initialFormValues } from "@/constants/constant";
-import { TheEnd } from "@/components/TheEnd";
+import { FirstCard } from "@/app/cards/FirstCard";
+import { SecondCard } from "@/app/cards/SecondCard";
+import { ThirdCard } from "@/app/cards/ThirdCard";
+import { initialFormValues } from "@/app/constants/constant";
+import { TheEnd } from "@/app/components/TheEnd";
 
 const HomePage = () => {
   const [currentCard, setCurrentCard] = useState(0);
@@ -34,9 +34,7 @@ const HomePage = () => {
     }
   };
 
-  const FormPageComponent = [FirstCard, SecondCard, ThirdCard, TheEnd][
-    currentCard
-  ];
+  const FormPageComponent = [FirstCard, SecondCard, ThirdCard, TheEnd][currentCard];
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

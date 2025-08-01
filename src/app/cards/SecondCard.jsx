@@ -1,5 +1,5 @@
-import { Heading } from "./Heading";
-import { InputField } from "./InputField";
+import { Heading } from "../components/Heading";
+import { InputField } from "../components/InputField";
 
 const isEmpty = (value) => !value?.trim();
 
@@ -31,14 +31,7 @@ const validateStepTwo = ({ email, phone, password, confirmPassword }) => {
   return { isFormValid, validationErrors };
 };
 
-export const SecondCard = ({
-  nextPage,
-  previousPage,
-  handleInputChange,
-  formValues,
-  formErrors,
-  updateFormErrors,
-}) => {
+export const SecondCard = ({ nextPage, previousPage, handleInputChange, formValues, formErrors, updateFormErrors }) => {
   const { email, phone, password, confirmPassword } = formValues;
   const {
     email: errorEmail,
@@ -47,10 +40,8 @@ export const SecondCard = ({
     confirmPassword: errorConfirmPassword,
   } = formErrors;
 
-  const continueButtonTailwind =
-    "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded  w-[50%]";
-  const backButtonTailwind =
-    "bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded  w-[50%]";
+  const continueButtonTailwind = "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded  w-[50%]";
+  const backButtonTailwind = "bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded  w-[50%]";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -106,11 +97,7 @@ export const SecondCard = ({
       <button onClick={previousPage} className={backButtonTailwind}>
         Back
       </button>
-      <button
-        onClick={handleSubmit}
-        className={continueButtonTailwind}
-        type="submit"
-      >
+      <button onClick={handleSubmit} className={continueButtonTailwind} type="submit">
         Continue
       </button>
     </form>

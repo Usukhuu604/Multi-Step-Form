@@ -1,5 +1,5 @@
-import { InputField } from "./InputField";
-import { Heading } from "./Heading";
+import { InputField } from "../components/InputField";
+import { Heading } from "../components/Heading";
 
 const isEmpty = (value) => !value?.trim();
 
@@ -21,19 +21,9 @@ const validateStepOne = ({ firstName, lastName, userName }) => {
   return { isFormValid, validationErrors };
 };
 
-export const FirstCard = ({
-  nextPage,
-  handleInputChange,
-  formValues,
-  formErrors,
-  updateFormErrors,
-}) => {
+export const FirstCard = ({ nextPage, handleInputChange, formValues, formErrors, updateFormErrors }) => {
   const { firstName, lastName, userName } = formValues;
-  const {
-    firstName: errorFirstName,
-    lastName: errorLastName,
-    userName: errorUserName,
-  } = formErrors;
+  const { firstName: errorFirstName, lastName: errorLastName, userName: errorUserName } = formErrors;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -79,11 +69,7 @@ export const FirstCard = ({
         error={errorUserName}
       />
 
-      <button
-        onClick={handleSubmit}
-        className={continueButtonTailwind}
-        type="submit"
-      >
+      <button onClick={handleSubmit} className={continueButtonTailwind} type="submit">
         Continue
       </button>
     </form>

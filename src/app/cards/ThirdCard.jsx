@@ -1,8 +1,8 @@
 "use client";
 
-import { InputField } from "./InputField";
-import { Heading } from "./Heading";
-import { ImageInput } from "./ImageInput";
+import { InputField } from "../components/InputField";
+import { Heading } from "../components/Heading";
+import { ImageInput } from "../components/ImageInput";
 
 const isEmpty = (value) => !value?.trim();
 const validateStepThree = ({ dateOfBirth, profileImage }) => {
@@ -30,8 +30,7 @@ export const ThirdCard = ({
   updateFormErrors,
 }) => {
   const { dateOfBirth, profileImage } = formValues;
-  const { dateOfBirth: errorDateOfBirth, profileImage: errorProfileImage } =
-    formErrors;
+  const { dateOfBirth: errorDateOfBirth, profileImage: errorProfileImage } = formErrors;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -43,10 +42,8 @@ export const ThirdCard = ({
     updateFormErrors(validationErrors);
   };
 
-  const continueButtonTailwind =
-    "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded  w-[50%]";
-  const backButtonTailwind =
-    "bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded  w-[50%]";
+  const continueButtonTailwind = "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded  w-[50%]";
+  const backButtonTailwind = "bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded  w-[50%]";
   return (
     <form className="bg-white p-4 rounded-[20px]">
       <Heading />
